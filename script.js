@@ -8,12 +8,10 @@ function randomInt(min, max) { // min and max included
   for (var i = 0; i < rndInt; i++) {
     var mainEl = document.getElementById("main");
     mainEl.innerHTML += 
-    `
-    <p><span>h</span><span>e</span><span>l</span><span>l</span><span>o</span></p>
-    `;
+    `<p><span>h</span><span>e</span><span>l</span><span>l</span><span>o</span></p>`;
  }
 
- var spacing = [
+ var spacings = [
   '10px',
   '15px',
   '20px',
@@ -31,8 +29,8 @@ var rows = document.querySelectorAll("p");
 rows.length = rndInt;
 
 for (i = 0; i < rows.length; i++) {
-  spacing = Math.floor(Math.random() * (max - min + 1) + min);
-  rows[i].style.letterSpacing = spacing;
+  var spacing = Math.floor(Math.random() * rows.length);
+  rows[i].style.letterSpacing = spacings[spacing];
 }
 
 var letters = document.querySelectorAll("span");
@@ -64,11 +62,32 @@ var fonts = [
   'Ruslan Display',
 ]
 
+var sizes = [
+  '16px',
+  '20px',
+  '24px',
+  '30px',
+  '44px',
+  '50px',
+  '54px',
+  '60px',
+  '64px',
+  '70px',
+  '74px',
+  '80px',
+  '84px',
+  '90px',
+  '94px',
+  '100px',
+]
+
 for (i; i < letters.length; i++) {
-  color = Math.floor(Math.random() * (max - min + 1) + min) * colors.length;
+  color = Math.floor(Math.random() * colors.length);
   letters[i].style.backgroundColor = colors[color];
-  font = Math.floor(Math.random() * (max - min + 1) + min) * fonts.length;
+  font = Math.floor(Math.random() * fonts.length);
   letters[i].style.fontFamily = fonts[font];
+  size = Math.floor(Math.random() * sizes.length);
+  letters[i].style.fontSize = sizes[size];
 }
 
 // function randomCha(min, max) {
